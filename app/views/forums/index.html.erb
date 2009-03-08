@@ -26,7 +26,7 @@
   </tr>
 <% for forum in @forums do %>  
   <tr>
-    <td class="vat c1">
+    <td class="vat col1">
     
       <% if recent_forum_activity(forum) %>
       <%= image_tag "clearbits/comment.gif", :class => "icon green", :title => 'Recent activity'[:recent_activity] %>
@@ -34,7 +34,7 @@
       <%= image_tag "clearbits/comment.gif", :class => "icon grey", :title => 'No recent activity'[:no_recent_activity] %>
       <% end %>
     </td>
-    <td class="c2 vat">
+    <td class="col2 vat">
       <%= link_to h(forum.name), forum_path(forum), :class => "title" %>
       <div class="posts">
         <%= '{count} topics'[(count=forum.topics.size)==1 ? :topic_count : :topics_count, number_with_delimiter(count)] %>, 
@@ -43,7 +43,7 @@
       <p class="desc"><%= forum.description_html %>
         </p>
     </td>
-    <td class="c3">
+    <td class="col3">
       <%= link_to 'Edit'[:edit_title], edit_forum_path(forum), :class => "tiny", :rel => "directory", :style => "float:right" if admin? %>
     </td>
 

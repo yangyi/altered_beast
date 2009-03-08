@@ -51,7 +51,7 @@
 </tr>
 <% for topic in @topics %>
 <tr class="hentry">
-  <td style="padding:5px; width:16px;" class="c1">
+  <td style="padding:5px; width:16px;" class="col1">
     <% 
     icon = "comment"
     color = ""
@@ -67,7 +67,7 @@
       <%= image_tag "clearbits/#{icon}.gif", :class => "icon grey #{color}", :title => "No recent activity"[]+"#{post}" %>
     <% end %>
   </td>
-  <td class="c2">
+  <td class="col2">
     <%= "Sticky"[:sticky_title]+": <strong>" if topic.sticky? %>
     <%= topic_title_link (topic), :class => "entry-title", :rel => "bookmark" %>
     <%= "</strong>" if topic.sticky? %>

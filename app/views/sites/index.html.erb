@@ -25,17 +25,17 @@
   </tr>
 <% @sites.each do |site| -%>  
   <tr>
-    <td class="c1 vat">
+    <td class="col1 vat">
       <%= link_to h(site.name), (site.default? ? root_path : root_url(:host => site.host, :port => request.port)), :class => "title" %>
 			<%= content_tag(:small, "(#{h(site.host)})") unless site.default? -%>
     </td>
-    <td class="c2">
+    <td class="col2">
       <%= link_to pluralize(site.forums.count, 'Forum'[:forum]), forums_url(:host => site.host, :port => request.port) %>
     </td>
-    <td class="c2">
+    <td class="col2">
       <%= link_to pluralize(site.users.count, 'User'[:user]), users_url(:host => site.host, :port => request.port) %>
     </td>
-    <td class="c2">
+    <td class="col2">
       <%= link_to 'Edit'[:edit_title], edit_site_path(site), :class => "tiny", :rel => "directory" if admin? %>
     </td>
   </tr>
