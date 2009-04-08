@@ -20,19 +20,20 @@ class User
   attr_accessible :login, :email, :password, :password_confirmation, :bio, 
     :openid_url, :display_name, :website
 
-  # Encrypts some data with the salt.
-  def self.encrypt(password, salt)
-    Digest::SHA1.hexdigest("--#{salt}--#{password}--")
-  end
-
-  # Encrypts the password with the user salt
-  def encrypt(password)
-    self.class.encrypt(password, salt)
-  end
-
-  def authenticated?(password)
-    crypted_password == encrypt(password)
-  end
+  # comment it out, and include restful authentication, so it will use site_key for store password, not the beast encrypt one
+  # # Encrypts some data with the salt.
+  # def self.encrypt(password, salt)
+  #   Digest::SHA1.hexdigest("--#{salt}--#{password}--")
+  # end
+  # 
+  # # Encrypts the password with the user salt
+  # def encrypt(password)
+  #   self.class.encrypt(password, salt)
+  # end
+  # 
+  # def authenticated?(password)
+  #   crypted_password == encrypt(password)
+  # end
 
 protected
   # before filter 
