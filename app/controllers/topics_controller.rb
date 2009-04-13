@@ -47,7 +47,7 @@ class TopicsController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml  => @topic.errors, :status => :unprocessable_entity }
       else
-        flash[:notice] = 'Topic was successfully created.'
+        flash[:notice] = t(:topic_was_successfully_created, 'Topic was successfully created.')
         format.html { redirect_to(forum_topic_path(@forum, @topic)) }
         format.xml  { render :xml  => @topic, :status => :created, :location => forum_topic_url(@forum, @topic) }
       end
@@ -58,7 +58,7 @@ class TopicsController < ApplicationController
     current_user.revise @topic, params[:topic]
     respond_to do |format|
       if @topic.errors.empty?
-        flash[:notice] = 'Topic was successfully updated.'
+        flash[:notice] = t(:topic_was_successfully_updated, :default => 'Topic was successfully updated.')
         format.html { redirect_to(forum_topic_path(@forum, @topic)) }
         format.xml  { head :ok }
       else

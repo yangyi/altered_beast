@@ -5,7 +5,7 @@
 <hr />
 <% end %>
 
-<h5 style="margin-bottom:1.0em;"><%= 'Moderators'[:moderators] %></h5>
+<h5 style="margin-bottom:1.0em;"><%= t(:moderators, :default => 'Moderators') %></h5>
 
 <% unless @forum.moderators.empty? -%>
 <ul class="flat" style="margin-top:1em;">
@@ -14,8 +14,8 @@
 <% end -%>
 </ul>
 <% else -%>
-<p><%= 'This forum is currently unmoderated.'[:forum_is_unmoderated] %></p>
-<p><%= 'Please always be courteous.'[:please_be_courteous] %></p>
+<p><%= t(:forum_is_unmoderated, :default => 'This forum is currently unmoderated.') %></p>
+<p><%= t(:please_be_courteous, :default => 'Please always be courteous.') %></p>
 <% end -%>
 
 <% end %>
@@ -23,7 +23,7 @@
 <% @page_title = @forum.name %>
 
 <div class="crumbs">
-<%= link_to 'Forums'[:forums_title], root_path %> <span class="arrow">&rarr;</span>
+<%= link_to t(:forums), root_path %> <span class="arrow">&rarr;</span>
 </div>
 <h1 style="margin-top:0.5em">
   <%= h @forum.name %>
@@ -44,10 +44,10 @@
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide topics">
 <tr>
-  <th class="la" colspan="2"><%= 'Topic'[:topic_title] %></th>
-  <th width="1%"><%= 'Posts'[:posts_title] %></th>
-  <th width="1%"><%= 'Views'[:views_title] %></th>
-  <th class="la"><%= 'Last post'[:last_post] %></th>
+  <th class="la" colspan="2"><%= t(:topic, :default => 'Topic') %></th>
+  <th width="1%"><%= t(:posts, :default => 'Posts') %></th>
+  <th width="1%"><%= t(:views, :default => 'Views') %></th>
+  <th class="la"><%= t(:last_post, :default => 'Last post') %></th>
 </tr>
 <% for topic in @topics %>
 <tr class="hentry">
@@ -91,5 +91,5 @@
 <%= will_paginate @topics %>
 
 <% if logged_in? %>
-<p><%= link_to 'New topic'[:new_topic], new_forum_topic_path(@forum), :class => "utility" %></p>
+<p><%= link_to t(:new_topic, :default => 'New topic'), new_forum_topic_path(@forum), :class => "utility" %></p>
 <% end%>

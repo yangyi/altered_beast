@@ -1,10 +1,10 @@
 <div class="crumbs" xstyle="margin-top:1.1em;">
-  <%= link_to 'Forums'[:forums_title], root_path %> <span class="arrow">&rarr;</span>
+  <%= link_to t(:forums, :default => 'Forums'), root_path %> <span class="arrow">&rarr;</span>
   <%= link_to h(@forum.name), forum_path(@forum) %> <span class="arrow">&rarr;</span>
 </div>
 
 
-<h1 id="new_topic"><%= 'New Topic'[] %></h1>
+<h1 id="new_topic"><%= t(:new_topic, :default => 'New Topic') %></h1>
 <p class="subtitle"><%= 'by {user}'[:by_user, current_user.display_name] %></p>
 
 
@@ -12,7 +12,7 @@
 <% form_for :topic,
      :url  => forum_topics_path(@forum) do |f| -%>
 <%= render :partial => "form", :object => f %>
-<%= submit_tag 'Post Topic'[], :or => link_to('Cancel'[], forum_path(@forum)) %>
+<%= submit_tag t(:post_topic, :default => 'Post Topic'), :or => link_to(t(:cancel, :default => 'Cancel'), forum_path(@forum)) %>
 <% end -%>
 
 <%= javascript_tag "$('topic_title').focus();" %>

@@ -7,22 +7,22 @@
 <% end %>
 
 <% if admin? %>
-<h6><%= 'Admin'[:admin_title] %></h6>
-<p><%= link_to 'Create New Forum'[:create_new_forum], new_forum_path, :class => "utility" %></p>
+<h6><%= t(:admin) %></h6>
+<p><%= link_to t(:create_new_forum), new_forum_path, :class => "utility" %></p>
 <% end %>
 
 <% end %>
 
-<h1 style="margin-top:0;"><%= 'Forums'[:forums_title] %></h1>
+<h1 style="margin-top:0;"><%= t(:forums) %></h1>
 <p class="subtitle">
-<%= feed_icon_tag "Recent Posts"[:recent_posts], formatted_posts_path(:format => 'atom') %>
+<%= feed_icon_tag t(:recent_posts), formatted_posts_path(:format => 'atom') %>
 <%= topic_count %>, <%= post_count %> <%# OPTIMIZE ME voice_count %>
 </p>
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide forums">
   <tr>
-    <th class="la" width="70%" colspan="3"><%= 'Forum'[:forum_title] %></th>
-    <th class="la" width="30%" colspan="1"><%= 'Last Post'[:last_post] %></th>
+    <th class="la" width="70%" colspan="3"><%= t(:forums) %></th>
+    <th class="la" width="30%" colspan="1"><%= t(:last_post) %></th>
   </tr>
 <% for forum in @forums do %>  
   <tr>
@@ -59,7 +59,7 @@
 </table>
 
 <p>
-  <%= link_to 'Recent posts'[:recent_posts], posts_path %>
+  <%= link_to t(:recent_posts), posts_path %>
 </p>
 
 <%# TODO: online_users = User.currently_online -%>
