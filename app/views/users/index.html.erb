@@ -1,13 +1,13 @@
-<h5><%= 'Find a User'[] %></h5>
+<h5><%= t(:find_user, :default => 'Find a User') %></h5>
 
 <% form_tag users_path, :method => 'get' do -%>
 <p>
-<label><%= 'Display name or login'[] %></label>
+<label><%= t(:display_name_or_login, :default => 'Display name or login') %></label>
 <%= text_field_tag :q, params[:q] %> 
-<%= submit_tag "Search"[:search_title] %></p>
+<%= submit_tag t(:search, :default => "Search") %></p>
 <% end -%>
 
-<h1 style="margin-top:0;"><%= 'Users'[:users_title] %></h1>
+<h1 style="margin-top:0;"><%= t(:users, :default => 'Users') %></h1>
 <p class="subtitle">
   <%= user_count %>, <%= active_user_count %>, <%= lurking_user_count %>
 </p>
@@ -16,12 +16,12 @@
 
 <table border="0" cellspacing="0" cellpadding="0" class="wide forums">
   <tr>
-    <th class="la" width="88%"><%= 'Name / Login'[:name_or_login] %></th>
+    <th class="la" width="88%"><%= t(:name_or_login, :default => 'Name / Login') %></th>
 	<% if logged_in? && current_user.admin? -%>
-	<th><%= "Current Status"[:current_status_title] %></th>
+	<th><%= t(:current_status, :default => "Current Status") %></th>
 	<% end -%>
     <th><%= 'Website'[:website_title] %></th>
-    <th width="1%"><%= 'Posts'[:posts_title] %></th>
+    <th width="1%"><%= t(:posts, :default => 'Posts') %></th>
   </tr>
 <% @users.each do |user|-%>  
   <tr>

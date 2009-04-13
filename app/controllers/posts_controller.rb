@@ -47,7 +47,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.new_record?
-        format.html { render :action => "new" }
+        flash[:warn] = 'Post could not be blank'
+        format.html { redirect_to(forum_topic_path(@forum, @topic)) }
         format.xml  { render :xml  => @post.errors, :status => :unprocessable_entity }
       else
         flash[:notice] = 'Post was successfully created.'

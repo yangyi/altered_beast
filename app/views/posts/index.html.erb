@@ -35,7 +35,7 @@
   </td>
   <td class="body entry-content">
     <p class="topic">
-      <%= "Topic"[:topic_title] %>: <%= link_to h(post.forum.name), forum_path(post.forum) %> / 
+      <%= t(:topic, :default => "Topic") %>: <%= link_to h(post.forum.name), forum_path(post.forum) %> / 
       <%= link_to h(post.topic.title), forum_topic_path(post.forum, post.topic) %>
     </p>
     

@@ -12,11 +12,13 @@ module ForumsHelper
   end
 
   def topic_count
-    pluralize current_site.topics.size, 'topic'
+    # pluralize current_site.topics.size, 'topic'
+    "主题数: #{current_site.topics.size}"
   end
   
   def post_count
-    pluralize current_site.posts.size, 'post'
+    # pluralize current_site.posts.size, 'post'
+    "发帖数: #{current_site.posts.size}"
   end
   
   def last_active

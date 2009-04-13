@@ -3,7 +3,7 @@
 
 <% content_for :right do -%>
 
-<h5><%= 'Voices'[:voices_title] %></h5>
+<h5><%= t(:voices, :default => 'Voices') %></h5>
 <ul class="flat talking">
 <% @topic.voices.each do | user | %>
   <li><%= link_to h(user.display_name), user_path(user) %></li>
@@ -50,8 +50,8 @@
   <% if logged_in? %>
     <span style="display:none;" id="topic_mod">
       <% if @topic.editable_by?(current_user) -%>
-        <%= link_to('edit'[], edit_forum_topic_path(@forum, @topic), :class => "utility") %> |
-        <%= link_to('delete'[], forum_topic_path(@forum, @topic), :class => "utility", :method => :delete, :confirm => 'Delete this topic forever?'[:delete_topic_conf]) %>
+        <%= link_to(t(:edit, :default => 'edit'), edit_forum_topic_path(@forum, @topic), :class => "utility") %> |
+        <%= link_to(t(:delete, :default => 'delete'), forum_topic_path(@forum, @topic), :class => "utility", :method => :delete, :confirm => t(:delete_confirm, :default => 'Delete this topic forever?')) %>
       <% end -%>
     </span>
   <% end %>
@@ -107,7 +107,7 @@
     <p>
       <span class="edit">
         <%= ajax_spinner_for "edit-post-#{post.id}", "spinner_bounce.gif" %>
-				<%= link_to 'Edit post'[], edit_forum_topic_post_path(@forum, @topic, post, :page => current_page), :class => 'utility' %>
+				<%= link_to t(:edit_post, :default => 'Edit post'), edit_forum_topic_post_path(@forum, @topic, post, :page => current_page), :class => 'utility' %>
       </span>
     </p>
     <% end -%>
@@ -138,7 +138,7 @@
 <p>
     <%= image_tag "clearbits/lock.gif", :class => "icon grey", :title => "Topic locked"[:topic_locked_title] %> 
     <label>
-    <%= 'This topic is locked'[:locked_topic] %>.</label>
+    <%= t(:locked_topic, :default => 'This topic is locked') %>.</label>
 </p>
 <% else -%>
 

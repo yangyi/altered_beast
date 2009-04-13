@@ -1,14 +1,14 @@
 <% content_for :right do %>
-
+<!-- 
 <h5><%= 'Avatars'[:avatars_title] %></h5>
 
 <p><%= 'To have your very own avatar displayed on this forum visit {gravatar} and sign up for a free gravatar.'[:gravatar_notice, %(<a href="http://www.gravatar.com/">gravatar.com</a>)] %></p>
-
+ -->
 <% end %>
 
-<h1><%= 'Settings'[:settings_title] %></h1>
+<h1><%= t(:settings, :default => 'Settings') %></h1>
 
-<p class="subtitle"><%= 'for {user}'[:for_user, @user.display_name] %>
+<p class="subtitle"><%= '{user}'[:for_user, @user.display_name] %>
 	<% if @user.login!=@user.display_name %>
 	(<%= @user.login %>)
 	<% end %>
@@ -18,12 +18,12 @@
 
 <% form_for :user, :url => user_path(@user), :html => { :method => :put } do |f| -%>
   <%= render :partial => "settings", :object => f %>
-  <p><%= submit_tag 'Change e-mail or password'[:change_email_or_password], :or => link_to( "cancel"[], "/") %></p>
+  <p><%= submit_tag t(:change_email_or_password, :default => 'Change e-mail or password'), :or => link_to( "cancel"[], "/") %></p>
 <% end -%>
 
 <br />
 
 <% form_for :user, :url => user_path(@user), :html => { :method => :put } do |f| -%>
   <%= render :partial => "contact_info", :locals => { :settings => f } %>
-  <p><%= submit_tag 'Update Profile'[], :or => link_to( "cancel"[], "/") %></p>
+  <p><%= submit_tag t(:update_profile, :default => 'Update Profile'), :or => link_to( "cancel"[], "/") %></p>
 <% end -%>

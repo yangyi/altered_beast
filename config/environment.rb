@@ -19,6 +19,7 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate', :lib => "will_paginate", 
     :source => "http://gems.github.com"
 
+  config.gem 'svenfuchs-i18n', :lib => "i18n", :source => "http://gems.github.com"
   # Skip frameworks you're not going to use (only works if using vendor/rails).
   # To use Rails without a database, you must remove the Active Record framework
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
@@ -59,5 +60,5 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   config.active_record.default_timezone = :utc
-  config.i18n.default_locale = :zh
+  config.i18n.default_locale = :"zh-CN"
 end

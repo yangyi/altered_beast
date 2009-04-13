@@ -1,5 +1,5 @@
 
-<h3><%= 'Basics'[:basics_title] %></h3>
+<h3><%= t(:basics, :default => 'Basics') %></h3>
 
 
 <% if not @user.valid? and @user.errors.on(:login) %>
@@ -16,15 +16,15 @@
 <% end %>
 
 <p>
-  <label for="user_email"><%= 'Email'[:email_title] %></label><br />
+  <label for="user_email"><%= t(:email, :default => 'Email') %></label><br />
   <%= settings.text_field :email %>
 </p>
 
 <div>
-  <label for="user_password"><%= 'Password'[:password_title] %></label><br />
-  <p class="entryhelp" style="margin-top:0.5em;"><%= 'Enter a new password twice to change your password. (must be longer than 5 characters)'[:password_field] %></p>
+  <label for="user_password"><%= t(:password) %></label><br />
+  <p class="entryhelp" style="margin-top:0.5em;"><%= t(:please_input_password) %></p>
   <%= settings.password_field :password, :size => 16 %>
-  <span class="entryhelp">(<%= 'once'[] %>)</span><br />
+  <span class="entryhelp">(<%= t(:new_password) %>)</span><br />
   <%= settings.password_field :password_confirmation, :size => 16 %>
-  <span class="entryhelp">(<%= 'and again'[] %>)</span>
+  <span class="entryhelp">(<%= t(:confirm_password) %>)</span>
 </div>

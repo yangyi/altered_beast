@@ -31,13 +31,13 @@
 
 <p class="subtitle">
   <%= feed_icon_tag @forum.name, formatted_forum_posts_path(@forum, :atom) %> 
-  <%= '{count} topic(s)'[(count=@forum.topics.size)==1 ? :topic_count : :topics_count, number_with_delimiter(count)] %>, 
-  <%= '{count} post(s)'[(count=@forum.posts.size)==1 ? :post_count : :posts_count, number_with_delimiter(count)] %>
+  <%= t(:count_topics, :count => @forum.topics.size) %>, 
+  <%= t(:count_posts, :count => @forum.posts.size) %>
 </p>
 
 <% if @topics.total_entries > 1 -%>
 <% if logged_in? %>
-<p style="float:right; margin-top:0;"><%= link_to 'New topic'[], new_forum_topic_path(@forum), :class => "utility" %></p>
+<p style="float:right; margin-top:0;"><%= link_to t(:new_topic, :default => 'New topic'), new_forum_topic_path(@forum), :class => "utility" %></p>
 <% end %>
 <%= will_paginate @topics %>
 <% end -%>
@@ -82,7 +82,7 @@
     <% if topic.last_user -%>
     <%= 'by {user}'[:by_user, "<span class=\"author\"><strong class=\"fn\">#{h(topic.last_user.display_name)}</strong></span>"] %>
     <% end -%>
-    <span><%= link_to 'view'[], forum_topic_path(@forum, topic, :page => topic.last_page, :anchor => "posts-#{topic.last_post_id}") %></span>
+    <span><%= link_to t(:view, :default => 'view'), forum_topic_path(@forum, topic, :page => topic.last_page, :anchor => "posts-#{topic.last_post_id}") %></span>
   </td>
 </tr>
 <% end %>

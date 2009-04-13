@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     unless @user.new_record?
       @user.register!
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = t(:thanks_for_signup, :default => "Thanks for signing up!")
     else
       render :action => 'new'
     end
