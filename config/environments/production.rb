@@ -15,4 +15,13 @@ config.action_controller.perform_caching             = true
 # config.action_controller.asset_host                  = "http://assets.example.com"
 
 # Disable delivery errors, bad email addresses will be ignored
-# config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = false
+ActionMailer::Base.delivery_method = :sendmail
+
+ActionMailer::Base.sendmail_settings = {  
+  :location => '/usr/sbin/sendmail',  
+  :arguments => '-i -t' 
+} 
+ActionMailer::Base.perform_deliveries = true 
+ActionMailer::Base.raise_delivery_errors = true 
+ActionMailer::Base.default_charset = "utf-8"
