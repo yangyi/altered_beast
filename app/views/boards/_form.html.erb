@@ -1,0 +1,21 @@
+<% form_for(@board) do |f| %>
+  <%= f.error_messages %>
+  <p style="float:right; margin-top:0">
+  </p>
+
+  <p id="board_title">
+
+  <table border="0" cellspacing="0" cellpadding="0" class="noborder nopad wide">
+    <td>
+      <label><%= t(:title) %></label><br />
+      <%= f.text_field :title, :class => "primary" %>
+    </td>
+  </table>
+
+  </p>
+  <p id="forum_descripion">
+  <label><%= t(:description) %></label><br />
+  <%= f.text_area :description, :rows => 7 %></p>
+  
+  <%= submit_tag t(:save) %>
+<% end %>

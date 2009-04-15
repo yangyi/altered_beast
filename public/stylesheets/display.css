@@ -82,7 +82,7 @@ a { color: #24b; }
 
 #header
 {
-	background:#111;
+	background:#790100;
 	padding:10px 4%;
 	border-bottom:3px solid #999;
 }
@@ -467,7 +467,7 @@ p
 	display:block;
 	float:left;
 	xcolor:#a86;
-	color:#9c6;
+	color:#FFFFFF;
 	xpadding:3px 1em;
 }
 
@@ -585,7 +585,10 @@ table.topics
  { font-size:0.8em; }
 table.forums tr th { font-size:0.8em; }
 table.forums tr td .title {
-	font-size:1.4em; 
+	font-size:15px;
+	font-weight:bold; 
+	text-decoration: none; 
+	color:#710A0A;
 	}
 
 table.forums tr td .desc {
@@ -608,10 +611,11 @@ table.forums .posts
 	font-size:0.8em;
 }
 
+table tr th{ background-color:#790100; }
 table tr th.la { 	text-align:left; }
 table tr td.ca { 	text-align:center; }
 table tr td.inv { background:#eee; }
-table tr td.vat { vertical-align:top; }
+table tr td.vat { vertical-align:top;}
 
 table tr td.narrow { padding:2px 5px;}
 

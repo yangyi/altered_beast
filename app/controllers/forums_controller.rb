@@ -7,7 +7,11 @@ class ForumsController < ApplicationController
     # reset the page of each forum we have visited when we go back to index
     session[:forums_page] = nil
 
-    @forums = current_site.ordered_forums
+    if params[:board_id]
+      @forums = current_site.ordered_forums
+    else
+      @forums = current_site.ordered_forums
+    end
 
     respond_to do |format|
       format.html # index.html.erb

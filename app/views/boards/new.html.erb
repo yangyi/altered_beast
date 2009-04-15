@@ -1,0 +1,8 @@
+<div class="crumbs">
+  <%= link_to t(:forum), root_path %> <span class="arrow">&rarr;</span>
+</div>
+
+<h1><%= t(:new_board) %></h1>
+
+<%= render :partial => "form" %>
+<%= link_to t(:cancel), boards_path %>

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :boards, :has_many => :forums
+
   map.resource :session
 
   map.resources :sites, :moderatorships

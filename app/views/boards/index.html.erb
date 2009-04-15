@@ -1,0 +1,35 @@
+<%- content_for :right do -%>
+<%- if admin? -%>
+<%= link_to t(:new_board), new_board_path, :class => "utility" %>
+<%- end -%>
+<%- end -%>
+
+<h1><%= t(:board) %></h1>
+<table border="0" cellspacing="0" cellpadding="0" class="wide forums">
+  <tr>
+    <th class="la" width="70%" colspan="3"><%= t(:board) %></th>
+    <th class="la" width="30%" colspan="1"><%= t(:description) %></th>
+  </tr>
+<% for board in @boards do %>  
+  <tr>
+    <td class="vat c1">
+    <%= board.title %>
+    </td>
+    <td class="c2 vat">
+      <%= board.forums.count %>
+    </td>
+    <td class="c3">
+      <%- if admin? -%>
+      <div style="float:right">
+        <%= link_to t(:edit), edit_board_path(board) %>
+        <%= link_to t(:delete), board_path(board), :method => :delete, :confirm => t(:delete_confirm) %>      
+      </div>
+      <%- end -%>
+    </td>
+
+    <td class="inv lp">
+      <%= board.description_html %>
+    </td>
+  </tr>
+<% end %>
+</table>

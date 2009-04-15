@@ -2,6 +2,9 @@
 # by tsechingho (http://github.com/tsechingho)
 
 "zh-CN":
+  save: 保存
+  new_board: 新建板块
+  board: 板块
   name_or_login: 名字 或 登录名
   current_status: 现在状态
   display_name_or_login: 显示名称或登录名
