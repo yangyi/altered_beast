@@ -26,6 +26,8 @@ class Forum < ActiveRecord::Base
   has_many :moderatorships, :dependent => :delete_all
   has_many :moderators, :through => :moderatorships, :source => :user
 
+  default_scope :order => 'position'
+
   # oh has_finder i eagerly await thee
   def self.ordered
     find :all, :order => 'position'
