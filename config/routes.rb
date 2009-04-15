@@ -27,5 +27,5 @@ ActionController::Routing::Routes.draw do |map|
   map.logout   '/logout',                    :controller => 'sessions', :action => 'destroy'
   map.settings '/settings',                  :controller => 'users',    :action => 'settings'
   map.resource  :session
-  map.root :controller => 'forums', :action => 'index'
+  map.root :controller => 'boards', :action => 'index'
 end

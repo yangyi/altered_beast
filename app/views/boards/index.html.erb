@@ -13,7 +13,7 @@
 <% for board in @boards do %>  
   <tr>
     <td class="vat c1">
-    <%= board.title %>
+    <%= link_to board.title, board_forums_path(board) %>
     </td>
     <td class="c2 vat">
       <%= board.forums.count %>

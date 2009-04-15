@@ -16,6 +16,12 @@
 </table>
 
 </p>
+
+<p id="forum_board">
+<label><%= t(:board) %></label><br />
+<%= form.select(:board_id, current_site.boards.all.collect {|b| [b.title, b.id]}) %>
+</p>
+
 <p id="forum_descripion">
 <label><%= t(:description) %></label><br />
 <%= form.text_area :description, :rows => 7 %></p>

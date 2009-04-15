@@ -32,10 +32,10 @@
   invalid_login: 用户名或密码错误
   you_have_been_logged_out: 你已经退出系统
   admin: 管理员
-  create_new_forum: 新建板块
+  create_new_forum: 新建论坛
   recent_posts: 最近发帖
   last_post: 上次发帖
-  new_forum: 新建板块
+  new_forum: 新建论坛
   create: 新建
   cancel: 取消
   title: 标题

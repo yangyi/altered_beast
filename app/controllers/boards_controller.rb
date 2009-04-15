@@ -40,7 +40,7 @@ class BoardsController < ApplicationController
   # POST /boards
   # POST /boards.xml
   def create
-    @board = Board.new(params[:board])
+    @board = current_site.boards.build(params[:board])
 
     respond_to do |format|
       if @board.save
