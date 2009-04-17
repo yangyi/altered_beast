@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090415165318) do
+ActiveRecord::Schema.define(:version => 20090417080755) do
 
   create_table "boards", :force => true do |t|
     t.string   "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20090415165318) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_id"
+    t.integer  "position",         :default => 0
   end
 
   create_table "card_generators", :force => true do |t|
@@ -50,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20090415165318) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "college_priorities", ["college_id", "province_id", "category"], :name => "duplex_unique", :unique => true
 
   create_table "college_scores", :force => true do |t|
     t.integer  "province_id"
@@ -225,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20090415165318) do
 
   add_index "recruitments", ["avg", "province_id", "year", "category"], :name => "index_recruitments_on_avg_and_province_id_and_year_and_category"
   add_index "recruitments", ["avg"], :name => "index_recruitments_on_avg"
+  add_index "recruitments", ["college_id", "recruit_priority_id", "major_id", "province_id", "year", "category"], :name => "unique_duplex", :unique => true
   add_index "recruitments", ["college_id", "year"], :name => "index_recruitments_on_college_id_and_year"
   add_index "recruitments", ["year", "major_id", "province_id", "college_province_id", "college_type_id"], :name => "index_recruitments"
   add_index "recruitments", ["year"], :name => "index_recruitments_on_year"
