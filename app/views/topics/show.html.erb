@@ -29,7 +29,10 @@
 
 
 <div class="crumbs">
-  <%= link_to t(:forums, :default => "Forums"), root_path %> <span class="arrow">&rarr;</span>
+  <%= link_to t(:board, :default => "Board"), root_path %> <span class="arrow">&rarr;</span>
+  <%- if @topic.forum.board -%>
+  <%= link_to @topic.forum.board.title, board_forums_path(@topic.forum.board) %> <span class="arrow">&rarr;</span>
+  <%- end -%>
   <%= link_to h(@topic.forum.name), forum_path(@topic.forum) %> 
   <% 
   page=session[:forum_page] ? session[:forum_page][@topic.forum.id] : nil
