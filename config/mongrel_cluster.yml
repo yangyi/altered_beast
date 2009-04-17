@@ -1,0 +1,10 @@
+---
+environment: production
+servers: 5
+address: 127.0.0.1
+port: "3500"
+user: deploy
+group: deploy
+cwd: /var/www/vhosts/bbs.luqutong.com
+log_file: log/mongrel.log
+pid_file: tmp/pids/mongrel.pid
