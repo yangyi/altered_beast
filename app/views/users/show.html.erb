@@ -36,6 +36,8 @@
   
 <% else %>
   <p><%= "User account is suspended."[] %> <%= link_to "Unsuspend user account", unsuspend_user_path(@user), :method => :put %></p>
+  <p><%= link_to "Activate user account", admin_activate_user_path(@user), :method => :put %></p>
+  
   
 <% end %>
 <p><%= link_to "Edit user account"[], edit_user_path(@user) %></p>
