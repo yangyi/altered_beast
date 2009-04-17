@@ -6,6 +6,7 @@ class Forum < ActiveRecord::Base
   validates_presence_of :name
   
   belongs_to :site
+  belongs_to :board
   
   has_permalink :name
   

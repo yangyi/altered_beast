@@ -10,12 +10,15 @@
 <table border="0" cellspacing="0" cellpadding="0" class="wide forums">
   <tr>
     <th class="la" width="70%" colspan="3"><%= t(:board) %></th>
-    <th class="la" width="30%" colspan="1"><%= t(:description) %></th>
+    <th class="la" width="30%" colspan="1">&nbsp;</th>
   </tr>
 <% for board in @boards do %>  
   <tr>
     <td class="vat c1">
-    <%= link_to board.title, board_forums_path(board) %>
+    <%= link_to board.title, board_forums_path(board), :class => "title" %>
+    <p class="desc"><%= board.description_html %>
+      </p>
+    
     </td>
     <td class="c2 vat">
       <%= board.forums.count %>
@@ -23,14 +26,14 @@
     <td class="c3">
       <%- if admin? -%>
       <div style="float:right">
-        <%= link_to t(:edit), edit_board_path(board) %>
-        <%= link_to t(:delete), board_path(board), :method => :delete, :confirm => t(:delete_confirm) %>      
+        <%= link_to t(:edit), edit_board_path(board), :class => "tiny" %>
+        <%= link_to t(:delete), board_path(board), :method => :delete, :confirm => t(:delete_confirm), :class => "tiny" %>      
       </div>
       <%- end -%>
     </td>
 
     <td class="inv lp">
-      <%= board.description_html %>
+      &nbsp;
     </td>
   </tr>
 <% end %>

@@ -8,7 +8,7 @@ class ForumsController < ApplicationController
     session[:forums_page] = nil
 
     if params[:board_id]
-      @board = Board.find(params[:board_id])
+      @board = current_site.boards.find(params[:board_id])
       @forums = @board.forums
     else
       @forums = current_site.ordered_forums

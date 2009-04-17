@@ -142,7 +142,10 @@
 </p>
 <% else -%>
 
-<p><%= link_to t(:reply_to_topic, :default => 'Reply to topic'), "#reply", :class => "utility", :id => 'reply-link' %></p>
+<p>
+<%= link_to t(:reply_to_topic, :default => 'Reply to topic'), "#reply", :class => "utility", :id => 'reply-link' %>
+<%= link_to t(:new_topic, :default => 'New topic'), new_forum_topic_path(@topic.forum), :class => "utility" %>
+  </p>
 
 <div id="reply" class="editbox">
 <div class="container">

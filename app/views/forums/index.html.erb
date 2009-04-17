@@ -13,7 +13,13 @@
 
 <% end %>
 
-<h1 style="margin-top:0;"><%= t(:forums) %></h1>
+<div class="crumbs">
+  <%= link_to t(:board), root_path %> <span class="arrow">&rarr;</span> 
+</div>
+
+<h1 style="margin-top:10;"><%= t(:forums) %></h1>
+
+
 <p class="subtitle">
 <%= feed_icon_tag t(:recent_posts), formatted_posts_path(:format => 'atom') %>
 <%= topic_count %>, <%= post_count %> <%# OPTIMIZE ME voice_count %>
@@ -52,8 +58,12 @@
     <td class="inv lp">
       <% if forum.recent_post -%>
         <%= jstime forum.recent_post.created_at %><br />
-        <%= 'by {user}'[:by_user,"<strong>#{h(forum.recent_post.user.display_name)}</strong>"] %>
-        <span>(<%= link_to t(:view, :default => 'view'), forum_topic_path(forum, forum.recent_post.topic, :page => forum.recent_post.topic.last_page, :anchor => dom_id(forum.recent_post)) %>)</span>
+        <%= 'by {user}'[:by_user,"<strong>#{h(forum.recent_post.user.display_name)}</strong>"] %> <br/>
+        <span>
+          <%= truncate(forum.recent_post.body) %>
+          
+          (<%= link_to t(:view, :default => 'view'), forum_topic_path(forum, forum.recent_post.topic, :page => forum.recent_post.topic.last_page, :anchor => dom_id(forum.recent_post)) %>)
+        </span>
       <% end -%>
     </td>
   </tr>

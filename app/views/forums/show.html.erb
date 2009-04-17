@@ -23,8 +23,12 @@
 <% @page_title = @forum.name %>
 
 <div class="crumbs">
-<%= link_to t(:forums), root_path %> <span class="arrow">&rarr;</span>
+  <%= link_to t(:board), root_path %> <span class="arrow">&rarr;</span> 
+  <%- if @forum.board -%>
+    <%= link_to @forum.board.title, board_forums_path(@forum.board) %> <span class="arrow">&rarr;</span>
+  <%- end -%>
 </div>
+
 <h1 style="margin-top:0.5em">
   <%= h @forum.name %>
 </h1>
