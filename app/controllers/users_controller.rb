@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @user.save if @user.valid?
     unless @user.new_record?
       @user.register!
+      @user.activate! # The user get activated directly
       redirect_back_or_default('/')
       flash[:notice] = t(:thanks_for_signup, :default => "Thanks for signing up!")
     else
@@ -66,6 +67,12 @@ class UsersController < ApplicationController
     @user.suspend! 
     flash[:notice] = "User was suspended."
     redirect_to users_path
+  end
+  
+  def admin_activate
+    @user.activate!
+    flash[:notice] = "User was activated."
+    redirect_to users_path    
   end
 
   def unsuspend

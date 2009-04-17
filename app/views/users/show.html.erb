@@ -32,6 +32,8 @@
   <% end -%>
   <p><label><%= 'User is an administrator'[] %></label></p>
   <p><%= link_to "Suspend user account", suspend_user_path(@user), :method => :put %></p>
+  <p><%= link_to "Activate user account", admin_activate_user_path(@user), :method => :put %></p>
+  
 <% else %>
   <p><%= "User account is suspended."[] %> <%= link_to "Unsuspend user account", unsuspend_user_path(@user), :method => :put %></p>
   
