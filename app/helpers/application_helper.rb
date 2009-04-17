@@ -20,9 +20,9 @@ module ApplicationHelper
   end
 
   def search_posts_title
-    returning(params[:q].blank? ? 'Recent Posts'[] : "Searching for"[] + " '#{h params[:q]}'") do |title|
-      title << " "+'by {user}'[:by_user,h(@user.display_name)] if @user
-      title << " "+'in {forum}'[:in_forum,h(@forum.name)] if @forum
+    returning(params[:q].blank? ? t(:recent_posts) : t(:searching_for) + " '#{h params[:q]}'") do |title|
+      title << " "+ t(:user) + ': {user}'[:by_user,h(@user.display_name)] if @user
+      title << " "+ t(:in) + ' {forum}'[:in_forum,h(@forum.name)] if @forum
     end
   end
 

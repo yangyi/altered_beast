@@ -2,6 +2,11 @@
 # by tsechingho (http://github.com/tsechingho)
 
 "zh-CN":
+  user: 用户
+  in: 在
+  recent_posts: 最近发帖
+  searching_for: 查找
+  view_all: 查看所有
   all_forums: 所有讨论区
   save: 保存
   new_board: 新建讨论区分类
